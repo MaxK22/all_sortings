@@ -3,4 +3,4 @@ project(all_sortings)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(all_sortings main.cpp)
+add_executable(all_sortings main.cpp my_sortings.h kucha.h)

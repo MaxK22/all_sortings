@@ -1,8 +1,4 @@
-#include <iostream>
-#include <vector>
-#include "time.h"
-
-using namespace std;
+#include "my_sortings.h"
 
 vector<int> sort_massive_size_3;
 vector<int> sort_massive_size_5;
@@ -16,38 +12,6 @@ vector<int> resort_massive_size_7;
 vector<int> sort90_massive_size_3;
 vector<int> sort90_massive_size_5;
 vector<int> sort90_massive_size_7;
-
-
-void bubble_sort_exit(vector<int> m)
-{
-    bool f = true;
-    for(int i = 1; i < m.size() && f; i++)
-    {
-        f = false;
-        for(int g = 0; g < m.size() - i; g++)
-        {
-            if(m[g] > m[g+1])
-            {
-                swap(m[g], m[g+1]);
-                f = true;
-            }
-        }
-    }
-}
-
-void bubble_sort(vector<int> m)
-{
-    for(int i = 1; i < m.size(); i++)
-    {
-        for(int g = 0; g < m.size() - i; g++)
-        {
-            if(m[g] > m[g+1])
-            {
-                swap(m[g], m[g+1]);
-            }
-        }
-    }
-}
 
 void test(void (*sort_function)(vector<int>), int dif, string name)
 {
@@ -130,7 +94,14 @@ void test(void (*sort_function)(vector<int>), int dif, string name)
         cout << "sort 90 percent sort mass with size 10^7: " << timeUsed << endl;
     }
 }
-//
+//sort90
+void generate_sort90(vector<int> &m)
+{
+    for(int i = 0; i < m.size()/10; ++i)
+    {
+        swap(m[(rand()*rand())%m.size()], m[(rand()*rand())%m.size()]);
+    }
+}
 
 int main() {
     for(int i = 1; i <= 10000000; ++i)
@@ -161,9 +132,15 @@ int main() {
 
 
 
-    //
+    //tests:
     test(bubble_sort, 1, "Bubble sort");
     test(bubble_sort_exit, 1, "Bubble sort with exit");
+    test(selection_sort, 1, "Selection sort");
+    test(insertion_sort, 1, "Insertion sort");
+    test(kucha_sort, 2, "Kucha sort");
+    test(my_sort, 2, "'std::sort()' from c++");
+    test(my_stable_sort, 2, "'std::stable_sort()' from c++");
+    test(final_merge_sort, 2, "Merge sort");
 
 
     return 0;
