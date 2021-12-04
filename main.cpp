@@ -141,6 +141,7 @@ int main() {
     test(my_sort, 2, "'std::sort()' from c++");
     test(my_stable_sort, 2, "'std::stable_sort()' from c++");
     test(final_merge_sort, 2, "Merge sort");
+    test(quick_sort, 2, "Quick sort");
 
 
     return 0;

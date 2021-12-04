@@ -10,7 +10,7 @@ class Kucha
 public:
     std::vector <T> src;
     int size;
-    Kucha(std::vector<T> a;
+    Kucha(std::vector<T> m);
     int sift_down(int i);
     void extract_max();
 };

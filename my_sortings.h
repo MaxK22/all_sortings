@@ -162,5 +162,37 @@ void final_merge_sort(vector<int> m)
 
 ///// quicksort
 
+int partition(vector<int> &m, int l, int r)
+{
+    int v = m[((l+r)/2)];
+    int j = r;
+    for(int i = l; i <= j;)
+    {
+        while(m[i] < v)
+            i++;
+        while(m[j] > v)
+            j--;
+        if(i < j)
+            swap(m[i++], m[j--]);
+        else
+            break;
+    }
+    return j;
+}
+
+void qsort(vector<int> &m, int l, int r)
+{
+    if(l < r)
+    {
+        int q = partition(m, l, r);
+        qsort(m, l, q);
+        qsort(m, q + 1, r);
+    }
+}
+
+void quick_sort(vector<int> m)
+{
+    qsort(m, 0, m.size() - 1);
+}
 
 #endif //ALL_SORTINGS_MY_SORTINGS_H
