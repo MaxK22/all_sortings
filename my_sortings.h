@@ -195,4 +195,9 @@ void quick_sort(vector<int> m)
     qsort(m, 0, m.size() - 1);
 }
 
+void better_quick_sort(vector<int> m)
+{
+    qsort(m, 0, m.size() - 1);
+}
+
 #endif //ALL_SORTINGS_MY_SORTINGS_H
