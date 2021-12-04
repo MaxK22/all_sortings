@@ -76,6 +76,18 @@ void insertion_sort(vector<int> m)
     }
 }
 
+void insertion_sort_for_qsort(vector<int> &m, int l, int r)
+{
+    for(int i = l; i <= r; ++i)
+    {
+        int j = i;
+        while(j > l && m[j] < m[j-1])
+        {
+            swap(m[j], m[--j]);
+        }
+    }
+}
+
 void kucha_sort(vector<int> m)
 {
     Kucha<int> kucha(m);
@@ -195,9 +207,39 @@ void quick_sort(vector<int> m)
     qsort(m, 0, m.size() - 1);
 }
 
+const int M = 10;
+
+void median(vector<int> &m, int a, int b, int c)
+{
+    if((m[a] >= m[b] && m[a] <= m[c]) || (m[a] <= m[b] && m[a] >= m[c]))
+    {
+        swap(m[a], m[b]);
+    }
+    else if((m[c] >= m[b] && m[c] <= m[a]) || (m[c] <= m[b] && m[c] >= m[a]))
+    {
+        swap(m[c], m[b]);
+    }
+}
+
+void qsort2(vector<int> &m, int l, int r)
+{
+    if(r - l <= M)
+    {
+        insertion_sort_for_qsort(m, l, r);
+        return;
+    }
+
+    median(m, l, (l+r)/2, r);
+
+    int q = partition(m, l, r);
+    qsort2(m, l, q);
+    qsort2(m, q + 1, r);
+
+}
+
 void better_quick_sort(vector<int> m)
 {
-    qsort(m, 0, m.size() - 1);
+    qsort2(m, 0, m.size() - 1);
 }
 
 #endif //ALL_SORTINGS_MY_SORTINGS_H
