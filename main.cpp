@@ -132,7 +132,7 @@ int main() {
 
 
 
-    //tests:
+    ///tests:
     test(bubble_sort, 1, "Bubble sort");
     test(bubble_sort_exit, 1, "Bubble sort with exit");
     test(selection_sort, 1, "Selection sort");

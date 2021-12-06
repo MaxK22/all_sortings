@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/max/CLionProjects/all_sortings/kucha.h
+
+/Users/max/CLionProjects/all_sortings/main.cpp
+my_sortings.h
+/Users/max/CLionProjects/all_sortings/my_sortings.h
+
+/Users/max/CLionProjects/all_sortings/my_sortings.h
+iostream
+-
+vector
+-
+time.h
+/Users/max/CLionProjects/all_sortings/time.h
+kucha.h
+/Users/max/CLionProjects/all_sortings/kucha.h
+algorithm
+-
+
